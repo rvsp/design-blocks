@@ -13,7 +13,7 @@ function getDirPath(name) {
 };
 
 function getFileName(index) {
-  return `${index + 1}.jpg`;
+  return `${index}.jpg`;
 };
 
 function getUrl(name) {
@@ -44,6 +44,8 @@ async function makeScreenshotsByName(name, selector) {
 
   for (var index = 0; index < blocks.length; index++) {
     const path = `${dirPath}/${getFileName(index)}`;
+
+    gutil.log(`Start screenshot for '${gutil.colors.cyan(name)}' to '${gutil.colors.magenta(path)}'`);
 
     await blocks[index].screenshot({
       path: path,
